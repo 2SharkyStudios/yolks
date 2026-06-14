@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   push:
-    name: "yolks:cassandra_${{ matrix.tag }}"
+    name: "cassandra:${{ matrix.tag }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false

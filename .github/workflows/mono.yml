@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   push:
-    name: "yolks:mono_${{ matrix.tag }}"
+    name: "mono:${{ matrix.tag }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false

@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   push:
-    name: "yolks:nodejs_${{ matrix.tag }}"
+    name: "nodejs:${{ matrix.tag }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false

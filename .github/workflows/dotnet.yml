@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   push:
-    name: "dotnet:dotnet_${{ matrix.tag }}"
+    name: "dotnet:${{ matrix.tag }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false

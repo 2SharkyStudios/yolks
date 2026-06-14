@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   push:
-    name: "yolks:mariadb_${{ matrix.tag }}"
+    name: "mariadb:${{ matrix.tag }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false

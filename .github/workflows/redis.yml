@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   push:
-    name: "yolks:redis_${{ matrix.tag }}"
+    name: "redis:${{ matrix.tag }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false

@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   push:
-    name: "yolks:mongodb_${{ matrix.tag }}"
+    name: "mongodb:${{ matrix.tag }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false

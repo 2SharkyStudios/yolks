@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   push:
-    name: "yolks:postgres_${{ matrix.tag }}"
+    name: "postgres:${{ matrix.tag }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false

@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   push:
-    name: "yolks:wine_${{ matrix.tag }}"
+    name: "wine:${{ matrix.tag }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false

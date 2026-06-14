@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   push:
-    name: "yolks:elixir_${{ matrix.tag }}"
+    name: "elixir:${{ matrix.tag }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false

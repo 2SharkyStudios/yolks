@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   pushx64:
-    name: "yolks:voice_${{ matrix.tag }}"
+    name: "voice:${{ matrix.tag }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
