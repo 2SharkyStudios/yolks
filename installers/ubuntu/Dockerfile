@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$TARGETOS/$TARGETARCH ubuntu:jammy
+FROM        --platform=$TARGETOS/$TARGETARCH ubuntu:latest
 
 LABEL         author="Kyle Speight" maintainer="kyle@kyle-hosting.xyz"
 
