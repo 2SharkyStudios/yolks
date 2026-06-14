@@ -1,0 +1,47 @@
+name: build tarkov
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * 1"
+  push:
+    branches:
+      - master
+    paths:
+      - tarkov/**
+permissions:
+  packages: write
+
+jobs:
+  push:
+    name: "tarkov:${{ matrix.tag }}"
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        tag:
+          - v4.0.11
+    steps:
+      - uses: actions/checkout@v4
+            # Setup QEMU for ARM64 Build
+      - uses: docker/setup-qemu-action@v3
+      - uses: docker/setup-buildx-action@v3
+        with:
+          buildkitd-flags: --debug
+      - id: lower-repo
+        name: Repository to lowercase
+        run: |
+          echo "repository=${GITHUB_REPOSITORY_OWNER@L}" >> $GITHUB_OUTPUT
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ steps.lower-repo.outputs.repository }}
+          password: ${{ secrets.REGISTRY_TOKEN || secrets.GITHUB_TOKEN }}
+      - uses: docker/build-push-action@v6
+        with:
+          context: ./tarkov
+          file: ./tarkov/${{ matrix.tag }}/Dockerfile
+          platforms: linux/amd64
+          push: true
+          tags: |
+            ghcr.io/${{ steps.lower-repo.outputs.repository }}/tarkov:${{ matrix.tag }}
+            ${{ github.repository_owner == '2sharkystudios' && format('ghcr.io/2sharkystudios/tarkov:{0}', matrix.tag) || '' }}

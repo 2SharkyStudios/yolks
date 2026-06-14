@@ -1,0 +1,58 @@
+name: build installers
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * 1"
+  push:
+    branches:
+      - master
+    paths:
+      - installers/**
+permissions:
+  packages: write
+
+jobs:
+  push:
+    name: "base:{{ matrix.tag }}"
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        tag:
+          - alpine
+          - debian
+          - ubuntu
+          - ubuntu-amd64
+        include:
+          - tag: ubuntu-amd64
+            platforms: linux/amd64
+          - tag: ubuntu
+            platforms: linux/amd64,linux/arm64
+          - tag: alpine
+            platforms: linux/amd64,linux/arm64
+          - tag: debian
+            platforms: linux/amd64,linux/arm64
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-qemu-action@v3
+      - uses: docker/setup-buildx-action@v3
+        with:
+          buildkitd-flags: --debug
+      - id: lower-repo
+        name: Repository to lowercase
+        run: |
+          echo "repository=${GITHUB_REPOSITORY_OWNER@L}" >> $GITHUB_OUTPUT
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ steps.lower-repo.outputs.repository }}
+          password: ${{ secrets.REGISTRY_TOKEN || secrets.GITHUB_TOKEN }}
+      - uses: docker/build-push-action@v6
+        with:
+          context: ./installers
+          file: ./installers/${{ matrix.tag }}/Dockerfile
+          platforms: ${{ matrix.platforms }}
+          push: true
+          tags: |
+            ghcr.io/${{ steps.lower-repo.outputs.repository }}/installers:${{ matrix.tag }}
+            ${{ github.repository_owner == '2sharkystudios' && format('ghcr.io/2sharkystudios/installers:{0}', matrix.tag) || '' }}
