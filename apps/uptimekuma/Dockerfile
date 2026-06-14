@@ -1,4 +1,4 @@
-FROM        --platform=$TARGETOS/$TARGETARCH node:latest
+FROM        --platform=$TARGETOS/$TARGETARCH ghcr.io/2sharkystudios/installer:alpine
 
 LABEL       author="Kyle Speight" maintainer="postmaster@terraforge.fun"
 LABEL       org.opencontainers.image.source="https://github.com/2SharkyStudios/yolks/"
