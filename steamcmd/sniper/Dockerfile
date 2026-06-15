@@ -3,7 +3,7 @@
 # ---------------------------------------------
 FROM         --platform=$TARGETOS/$TARGETARCH registry.gitlab.steamos.cloud/steamrt/sniper/platform:latest-container-runtime-depot
 
-LABEL         author="Kyle Speight" maintainer="kyle@kyle-hosting.xyz"
+LABEL         author="Kyle Speight" maintainer="postmaster@terraforge.fun"
 LABEL       org.opencontainers.image.description SteamRT3 Platform image for Pterodactyl Source engine servers. 
 
 # Install required packages

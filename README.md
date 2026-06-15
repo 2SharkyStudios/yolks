@@ -18,3 +18,17 @@ example of this would be something like Java or Python which are used for runnin
 All of these images are available for `linux/amd64` and `linux/arm64` versions, unless otherwise specified, to use
 these images on an arm system, no modification to them or the tag is needed, they should just work.
 
+# Images
+
+## Installers
+[![build installers](https://github.com/2SharkyStudios/yolks/actions/workflows/installers.yml/badge.svg)](https://github.com/2SharkyStudios/yolks/actions/workflows/installers.yml)
+```
+ghcr.io/2sharkystudios/installers:
+===================================
+ubuntu
+alpine
+debian
+ubuntu-amd64
+===================================
+```
+## Apps

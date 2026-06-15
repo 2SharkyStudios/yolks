@@ -1,6 +1,6 @@
 FROM        --platform=$TARGETOS/$TARGETARCH python:3.12-slim-bookworm
 
-LABEL         author="Kyle Speight" maintainer="kyle@kyle-hosting.de"
+LABEL         author="Kyle Speight" maintainer="postmaster@terraforge.fun"
 
 RUN         apt update \
             && apt -y install git gcc php python3 python3-pip g++ ca-certificates dnsutils curl iproute2 ffmpeg procps tini \

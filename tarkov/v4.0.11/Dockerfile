@@ -1,6 +1,6 @@
 FROM        --platform=$TARGETOS/$TARGETARCH ghcr.io/2sharkystudios/base:ubuntu
 
-LABEL       author="Kyle Speight" maintainer="chillcog3142@proton.me"
+LABEL       author="Kyle Speight" maintainer="postmaster@terraforge.fun"
 
 ENV         DEBIAN_FRONTEND=noninteractive
 

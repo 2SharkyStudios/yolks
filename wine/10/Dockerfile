@@ -1,7 +1,7 @@
 # ---------------------------------------
 # Generic Wine image based on Wine staging 
 # ---------------------------------------
-FROM            ghcr.io/parkervcp/yolks:debian
+FROM            ghcr.io/2sharkystudios/base:debian
 
 LABEL         author="Kyle Speight" maintainer="kyle@kyle-hosting.xyz"
 LABEL           org.opencontainers.image.licenses=MIT

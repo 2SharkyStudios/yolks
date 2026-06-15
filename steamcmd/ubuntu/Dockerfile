@@ -1,6 +1,6 @@
 FROM        --platform=$TARGETOS/$TARGETARCH ubuntu:24.04
 
-LABEL         author="Kyle Speight" maintainer="kyle@kyle-hosting.xyz"
+LABEL         author="Kyle Speight" maintainer="postmaster@terraforge.fun"
 
 LABEL       org.opencontainers.image.source="https://github.com/kylehost/yolks"
 LABEL       org.opencontainers.image.licenses=AGPL-3.0-or-later

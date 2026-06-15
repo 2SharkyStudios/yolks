@@ -1,6 +1,6 @@
 FROM        --platform=$TARGETOS/$TARGETARCH rust:slim
 
-LABEL         author="Kyle Speight" maintainer="kyle@kyle-hosting.xyz"
+LABEL         author="Kyle Speight" maintainer="postmaster@terraforge.fun"
 RUN         apt update \
                 && apt -y install git dnsutils curl iproute2 ffmpeg tini pkg-config \
                 && useradd -m -d /home/container container
